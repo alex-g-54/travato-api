@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  direction: 1
+  traveller_id: 1
+  local_id: 1
+
+two:
+  direction: 1
+  traveller_id: 1
+  local_id: 1
