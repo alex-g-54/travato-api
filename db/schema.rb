@@ -11,9 +11,49 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 0) do
+ActiveRecord::Schema.define(version: 20160611220415) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "bookings", force: :cascade do |t|
+    t.integer  "tour_id"
+    t.integer  "traveller_id"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+  end
+
+  create_table "ratings", force: :cascade do |t|
+    t.integer  "direction",    default: 0
+    t.integer  "traveller_id"
+    t.integer  "local_id"
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
+  end
+
+  create_table "tours", force: :cascade do |t|
+    t.integer  "local_id"
+    t.string   "name"
+    t.decimal  "price",          precision: 10, scale: 2
+    t.text     "description"
+    t.integer  "total_capacity"
+    t.integer  "spots_sold"
+    t.datetime "start_time"
+    t.datetime "end_time"
+    t.datetime "created_at",                              null: false
+    t.datetime "updated_at",                              null: false
+  end
+
+  create_table "users", force: :cascade do |t|
+    t.string   "type"
+    t.string   "username"
+    t.string   "email"
+    t.string   "password"
+    t.string   "full_name"
+    t.text     "description"
+    t.string   "facebook_token"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+  end
 
 end
