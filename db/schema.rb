@@ -33,6 +33,7 @@ ActiveRecord::Schema.define(version: 20160611220415) do
 
   create_table "tours", force: :cascade do |t|
     t.integer  "local_id"
+    t.string   "city"
     t.string   "name"
     t.decimal  "price",          precision: 10, scale: 2
     t.text     "description"

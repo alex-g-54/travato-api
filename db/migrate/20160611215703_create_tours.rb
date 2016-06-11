@@ -2,6 +2,7 @@ class CreateTours < ActiveRecord::Migration[5.0]
   def change
     create_table :tours do |t|
       t.integer :local_id
+      t.string :city
       t.string :name
       t.decimal :price, precision: 10, scale: 2
       t.text :description
