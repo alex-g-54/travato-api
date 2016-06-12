@@ -61,7 +61,7 @@ post '/register', to: 'users#register', as: 'register'
 
 resources :bookings
 resources :tours
-post '/traveller/tours', to: 'tour#my_tours', as: 'my_tours'
+post '/traveller/:id/tours', to: 'tour#my_tours', as: 'my_tours'
 
 
 

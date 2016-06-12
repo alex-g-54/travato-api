@@ -29,4 +29,11 @@ class ToursController < ApplicationController
 
   def destroy
   end
+
+  def my_tours
+    traveller_id = params["id"]
+    @traveller = Traveller.find_by(id: traveller_id) 
+    @tours = @traveller.tours.includes(:local)
+    render json: {tours: @tours}, status: 200, include: :local
+  end
 end
