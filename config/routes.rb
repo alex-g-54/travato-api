@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
@@ -54,13 +55,13 @@ Rails.application.routes.draw do
   #     resources :products
   #   end
 
-post '/fb-login', to: 'users#fbLogin', as: 'fbLogin'
+post '/fb_login', to: 'users#fb_login', as: 'fb_login'
 post '/register', to: 'users#register', as: 'register'
 
 
 resource :bookings
 resource :tours
-post '/traveller/tours', to: 'tours#my_tours', as: 'my_tours'
+post '/traveller/tours', to: 'tour#my_tours', as: 'my_tours'
 
 
 
