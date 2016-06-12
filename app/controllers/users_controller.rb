@@ -6,5 +6,8 @@ class UsersController < ApplicationController
   end
 
   def register
+    @user = User.new(params[:user])
+    @user.save
+    render status: 200, json: {status: "created user", user: @user}.to_json
   end
 end
