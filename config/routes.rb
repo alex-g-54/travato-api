@@ -53,4 +53,16 @@ Rails.application.routes.draw do
   #     # (app/controllers/admin/products_controller.rb)
   #     resources :products
   #   end
+
+post '/fb-login', to: 'users#fbLogin', as: 'fbLogin'
+post '/register', to: 'users#register', as: 'register'
+
+
+resource :bookings
+resource :tours
+post '/traveller/tours', to: 'tours#my_tours', as: 'my_tours'
+
+
+
+
 end
