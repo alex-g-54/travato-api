@@ -1,29 +1,5 @@
 Rails.application.routes.draw do
 
-  get 'tours/index'
-
-  get 'tours/new'
-
-  get 'tours/create'
-
-  get 'tours/edit'
-
-  get 'tours/update'
-
-  get 'tours/destroy'
-
-  get 'bookings/index'
-
-  get 'bookings/create'
-
-  get 'bookings/show'
-
-  get 'bookings/edit'
-
-  get 'bookings/update'
-
-  get 'bookings/destroy'
-
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
@@ -83,8 +59,8 @@ post '/fb_login', to: 'users#fb_login', as: 'fb_login'
 post '/register', to: 'users#register', as: 'register'
 
 
-resource :bookings
-resource :tours
+resources :bookings
+resources :tours
 post '/traveller/tours', to: 'tour#my_tours', as: 'my_tours'
 
 

@@ -1,10 +1,12 @@
 class ToursController < ApplicationController
   def index
     city = params["city"]
-    start_time = DateTime.parse(params["start_time"])
-    end_time = DateTime.parse(params["end_time"])
+    start_date = Date.parse(params["start_date"])
+    end_date = Date.parse(params["end_date"])
 
-    @tours = Tour.where(city: city, )
+    @tours = Tour.includes(:local).where(city: city, date: start_date..end_date)
+
+    render json: {tours: @tours}, status: 200, include: :local
   end
 
   def new
