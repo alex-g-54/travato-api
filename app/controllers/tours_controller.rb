@@ -18,6 +18,12 @@ class ToursController < ApplicationController
   def edit
   end
 
+  def show
+    tour_id = params["id"]
+    @tour = Tour.includes(:local).find_by(id: tour_id)
+    render json: {tour: @tour}, status: 200, include: :local
+  end
+
   def update
   end
 
