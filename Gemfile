@@ -49,3 +49,4 @@ group :production do
   gem 'puma'
 end
 
+gem 'devise'

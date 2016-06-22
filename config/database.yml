@@ -23,7 +23,7 @@ default: &default
 
 development:
   <<: *default
-  database: travato-api_development
+  database: travato_api_development
 
   # The specified database role being used to connect to postgres.
   # To create additional roles in postgres see `$ createuser --help`.
@@ -57,7 +57,7 @@ development:
 # Do not set this db to the same as development or production.
 test:
   <<: *default
-  database: travato-api_test
+  database: travato_api_test
 
 # As with config/secrets.yml, you never want to store sensitive information,
 # like your database password, in your source code. If your source code is
@@ -80,6 +80,6 @@ test:
 #
 production:
   <<: *default
-  database: travato-api_production
-  username: travato-api
+  database: travato_api_production
+  username: <%= ENV['TRAVATO-API_DATABASE_USER'] %>
   password: <%= ENV['TRAVATO-API_DATABASE_PASSWORD'] %>
