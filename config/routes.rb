@@ -3,7 +3,7 @@ Rails.application.routes.draw do
       scope '/v1' do
         post '/fb_login', to: 'users#fb_login', as: 'fb_login'
         post '/register', to: 'users#register', as: 'register'
-        devise_for :users
+        # devise_for :users
 
         resources :bookings
         resources :tours

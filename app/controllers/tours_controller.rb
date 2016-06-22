@@ -1,4 +1,4 @@
-class ToursController < ApplicationController
+class ToursController < BaseApiController
   def index
     city = params["city"]
     start_date = Date.parse(params["start_date"])

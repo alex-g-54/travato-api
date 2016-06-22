@@ -1,4 +1,4 @@
-class UsersController < ApplicationController
+class UsersController < BaseApiController
   def fb_login
     render status: 200, json: {ru: "smells"}
   end

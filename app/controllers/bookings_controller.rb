@@ -1,4 +1,4 @@
-class BookingsController < ApplicationController
+class BookingsController < BaseApiController
   def index
   end
 
