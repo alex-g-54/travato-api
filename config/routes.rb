@@ -9,5 +9,9 @@ Rails.application.routes.draw do
   resources :tours
   post '/traveller/:id/tours', to: 'tour#my_tours', as: 'my_tours'
 
-  root to: "pages#welcome"
+  root to: "pages#index"
+
+  # devise_scope :user do
+  #   delete 'sign_out', :to => 'devise/sessions#destroy', :as => :destroy_user_session
+  # end
 end
