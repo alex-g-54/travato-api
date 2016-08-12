@@ -7,4 +7,6 @@ Rails.application.routes.draw do
   post '/traveller/:id/tours', to: 'tour#my_tours', as: 'my_tours'
 
   root to: "pages#index"
+
+  get '/users/gate', to: 'user#gate', as: 'user_gate'
 end
