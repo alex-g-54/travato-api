@@ -50,6 +50,7 @@ ActiveRecord::Schema.define(version: 20160622203110) do
   create_table "users", force: :cascade do |t|
     t.string   "type"
     t.string   "username"
+    t.string   "password"
     t.string   "full_name"
     t.text     "description"
     t.string   "facebook_token"
