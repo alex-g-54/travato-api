@@ -1,0 +1,5 @@
+<%= form_tag("/users/update", method: "PUT") do %>
+  <%= label_tag(:type, "Type:") %>
+  <%= text_field_tag(:type) %>
+  <%= submit_tag("Submit") %>
+<% end %>

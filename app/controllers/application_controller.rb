@@ -8,4 +8,8 @@ private
     root_path
   end
 
+  def after_sign_in_path_for(resource)
+    user_gate_path
+  end
+
 end
