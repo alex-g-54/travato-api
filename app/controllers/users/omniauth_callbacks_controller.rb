@@ -7,7 +7,7 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
         set_flash_message(:notice, :success, kind: "Facebook") if is_navigational_format?
       else
         session["devise.facebook_data"] = request.env["omniauth.auth"]
-        redirect_to page_path("sign_out")
+        redirect_to user_gate_path
       end
   end
 

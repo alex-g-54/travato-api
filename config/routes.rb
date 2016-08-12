@@ -4,9 +4,9 @@ Rails.application.routes.draw do
 
   resources :bookings
   resources :tours
-  post '/traveller/:id/tours', to: 'tour#my_tours', as: 'my_tours'
+  post '/traveller/:id/tours', to: 'tours#my_tours', as: 'my_tours'
 
   root to: "pages#index"
 
-  get '/users/gate', to: 'user#gate', as: 'user_gate'
+  get '/users/gate', to: 'users#gate', as: 'user_gate'
 end

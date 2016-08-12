@@ -6,4 +6,5 @@ class UsersController < ApplicationController
     else
       redirect_to page_path('dashboard')
     end
+  end
 end
