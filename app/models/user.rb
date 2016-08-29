@@ -13,4 +13,8 @@ class User < ActiveRecord::Base
       user.password = Devise.friendly_token[0,20]
     end
   end
+
+  def get_type_lc()
+    return self.type.downcase;
+  end
 end
