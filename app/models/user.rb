@@ -17,8 +17,4 @@ class User < ActiveRecord::Base
   def has_type?
     type.present?
   end
-
-  def get_type_lc()
-    return self.type.downcase;
-  end
 end
