@@ -5,6 +5,9 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable,
          :omniauthable, omniauth_providers: [:facebook]
 
+  has_many :itineraries, through: :itinerary_users
+  has_many :itinerary_users, inverse_of: :user
+
   def self.from_omniauth(auth)
     where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
       user.full_name = auth.info.name
@@ -15,6 +18,10 @@ class User < ActiveRecord::Base
   end
 
   def has_type?
-    type.present?
+    true
+  end
+  # @TODO: remove dependencies so this isn't needed 
+  def type
+    "Local"
   end
 end
