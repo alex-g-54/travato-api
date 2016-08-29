@@ -4,11 +4,6 @@ class HomeController < ApplicationController
 
     @user = User.find(current_user.id)
 
-    if @user.has_type?
-      flash[:notice] = @user.returning_flash_message
-      redirect_to user_path(@user)
-    else
-      redirect_to edit_user_path(@user)
-    end
+    redirect_to user_path(@user)
   end
 end
