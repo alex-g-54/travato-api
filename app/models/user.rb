@@ -15,6 +15,10 @@ class User < ActiveRecord::Base
   end
 
   def has_type?
-    type.present?
+    true
+  end
+  # @TODO: remove dependencies so this isn't needed 
+  def type
+    "Local"
   end
 end

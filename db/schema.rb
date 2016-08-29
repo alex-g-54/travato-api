@@ -11,28 +11,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160812144622) do
+ActiveRecord::Schema.define(version: 20160829210848) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "bookings", force: :cascade do |t|
-    t.integer  "tour_id"
-    t.integer  "traveller_id"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
-  end
-
-  create_table "ratings", force: :cascade do |t|
-    t.integer  "direction",    default: 0
-    t.integer  "traveller_id"
-    t.integer  "local_id"
-    t.datetime "created_at",               null: false
-    t.datetime "updated_at",               null: false
-  end
-
-  create_table "tours", force: :cascade do |t|
-    t.integer  "local_id"
+  create_table "itineraries", force: :cascade do |t|
+    t.integer  "user_id"
     t.string   "city"
     t.string   "name"
     t.decimal  "price",          precision: 10, scale: 2
@@ -47,8 +32,14 @@ ActiveRecord::Schema.define(version: 20160812144622) do
     t.date     "date"
   end
 
+  create_table "itinerary_users", force: :cascade do |t|
+    t.integer  "itinerary_id"
+    t.integer  "user_id"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+  end
+
   create_table "users", force: :cascade do |t|
-    t.string   "type"
     t.string   "username"
     t.string   "full_name"
     t.text     "description"
