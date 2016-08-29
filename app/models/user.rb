@@ -13,4 +13,8 @@ class User < ActiveRecord::Base
       user.password = Devise.friendly_token[0,20]
     end
   end
+
+  def has_type?
+    type.present?
+  end
 end
