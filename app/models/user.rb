@@ -1,10 +1,11 @@
 class User < ActiveRecord::Base
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
-  devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :trackable, :validatable,
-         :omniauthable, omniauth_providers: [:facebook]
+  #devise :database_authenticatable, :registerable,
+  #       :recoverable, :rememberable, :trackable, :validatable,
+  #       :omniauthable, omniauth_providers: [:facebook]
 
+  devise :omniauthable
   has_many :itineraries, through: :itinerary_users
   has_many :itinerary_users, inverse_of: :user
 
@@ -20,7 +21,7 @@ class User < ActiveRecord::Base
   def has_type?
     true
   end
-  # @TODO: remove dependencies so this isn't needed 
+  # @TODO: remove dependencies so this isn't needed
   def type
     "Local"
   end
