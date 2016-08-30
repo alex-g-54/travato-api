@@ -8,8 +8,9 @@ class UserDashboard < Administrate::BaseDashboard
   # which determines how the attribute is displayed
   # on pages throughout the dashboard.
   ATTRIBUTE_TYPES = {
+    host_itineraries: Field::HasMany.with_options(class_name: "Itinerary"),
+    guest_itineraries: Field::HasMany.with_options(class_name: "Itinerary"),
     id: Field::Number,
-    type: Field::String,
     username: Field::String,
     full_name: Field::String,
     description: Field::Text,
@@ -35,17 +36,17 @@ class UserDashboard < Administrate::BaseDashboard
   # By default, it's limited to four items to reduce clutter on index pages.
   # Feel free to add, remove, or rearrange items.
   COLLECTION_ATTRIBUTES = [
+    :host_itineraries,
+    :guest_itineraries,
     :id,
-    :type,
-    :username,
-    :full_name,
   ].freeze
 
   # SHOW_PAGE_ATTRIBUTES
   # an array of attributes that will be displayed on the model's show page.
   SHOW_PAGE_ATTRIBUTES = [
+    :host_itineraries,
+    :guest_itineraries,
     :id,
-    :type,
     :username,
     :full_name,
     :description,
@@ -69,7 +70,8 @@ class UserDashboard < Administrate::BaseDashboard
   # an array of attributes that will be displayed
   # on the model's form (`new` and `edit`) pages.
   FORM_ATTRIBUTES = [
-    :type,
+    :host_itineraries,
+    :guest_itineraries,
     :username,
     :full_name,
     :description,

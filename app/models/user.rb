@@ -6,7 +6,7 @@ class User < ActiveRecord::Base
          :omniauthable, omniauth_providers: [:facebook]
 
   has_many :host_itineraries, foreign_key: "user_id", class_name: "Itinerary"
-  has_many :guest_itineraries, through: :itinerary_users, source: :itinerary
+  has_many :guest_itineraries, through: :itinerary_users, source: :itinerary, class_name: "Itinerary"
   has_many :itinerary_users, inverse_of: :user
 
   def self.from_omniauth(auth)
@@ -16,14 +16,5 @@ class User < ActiveRecord::Base
       user.email = auth.info.email
       user.password = Devise.friendly_token[0,20]
     end
-  end
-
-  def has_type?
-    true
-  end
-
-  # @TODO: remove dependencies so this isn't needed
-  def type
-    "Local"
   end
 end
