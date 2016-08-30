@@ -1,12 +1,12 @@
 class ItinerariesController < ApplicationController
   def index
-    # city = params["city"]
-    # start_date = Date.parse(params["start_date"])
-    # end_date = Date.parse(params["end_date"])
+    # TODO: query by city, start_date, end_date
+    @itineraries = Itinerary.all
 
-    # @itineraries = Itinerary.includes(:user).where(city: city, date: start_date..end_date)
-
-    render json: {itineraries: "hi!"}, status: 200, include: :user
+    respond_to do |format|
+      format.html # index.html.erb
+      format.json { render json: @itineraries }
+    end
   end
 
   def new
@@ -20,20 +20,17 @@ class ItinerariesController < ApplicationController
 
   def show
     itinerary_id = params["id"]
-    @itinerary = Itinerary.includes(:user).find_by(id: itinerary_id)
-    render json: {itinerary: @itinerary}, status: 200, include: :user
+    @itinerary = Itinerary.where(id: itinerary_id).limit(1).first
+
+    respond_to do |format|
+      format.html # show.html.erb
+      format.json { render json: @itinerary }
+    end
   end
 
   def update
   end
 
   def destroy
-  end
-
-  def my_itineraries
-    user_id = params["id"]
-    @user = User.find_by(id: user_id)
-    @itineraries = @users.itineraries.includes(:user)
-    render json: {itineraries: @itineraries}, status: 200, include: :user
   end
 end
