@@ -21,6 +21,7 @@ class User < ActiveRecord::Base
   def has_type?
     true
   end
+
   # @TODO: remove dependencies so this isn't needed
   def type
     "Local"

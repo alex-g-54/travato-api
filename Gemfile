@@ -24,7 +24,7 @@ gem 'devise'
 gem 'omniauth-facebook'
 
 group :development, :test do
-  gem 'pry'
+  gem 'pry-rails'
   gem 'dotenv-rails'
 end
 
