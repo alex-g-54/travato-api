@@ -1,12 +1,12 @@
 class User < ActiveRecord::Base
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
-  #devise :database_authenticatable, :registerable,
-  #       :recoverable, :rememberable, :trackable, :validatable,
-  #       :omniauthable, omniauth_providers: [:facebook]
+  devise :database_authenticatable, :registerable,
+         :recoverable, :rememberable, :trackable, :validatable,
+         :omniauthable, omniauth_providers: [:facebook]
 
-  devise :omniauthable
-  has_many :itineraries, through: :itinerary_users
+  has_many :host_itineraries, foreign_key: "user_id", class_name: "Itinerary"
+  has_many :guest_itineraries, through: :itinerary_users, source: :itinerary
   has_many :itinerary_users, inverse_of: :user
 
   def self.from_omniauth(auth)
