@@ -1,12 +1,12 @@
 class ItinerariesController < ApplicationController
   def index
-    city = params["city"]
-    start_date = Date.parse(params["start_date"])
-    end_date = Date.parse(params["end_date"])
+    # city = params["city"]
+    # start_date = Date.parse(params["start_date"])
+    # end_date = Date.parse(params["end_date"])
 
-    @itineraries = Itinerary.includes(:user).where(city: city, date: start_date..end_date)
+    # @itineraries = Itinerary.includes(:user).where(city: city, date: start_date..end_date)
 
-    render json: {itineraries: @itineraries}, status: 200, include: :user
+    render json: {itineraries: "hi!"}, status: 200, include: :user
   end
 
   def new
