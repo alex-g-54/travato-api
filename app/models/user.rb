@@ -17,13 +17,4 @@ class User < ActiveRecord::Base
       user.password = Devise.friendly_token[0,20]
     end
   end
-
-  def has_type?
-    true
-  end
-
-  # @TODO: remove dependencies so this isn't needed
-  def type
-    "Local"
-  end
 end

@@ -30,9 +30,9 @@ class ItinerariesController < ApplicationController
   def destroy
   end
 
-  def my_tours
+  def my_itineraries
     user_id = params["id"]
-    @user = User.find_by(id: user_id) 
+    @user = User.find_by(id: user_id)
     @itineraries = @users.itineraries.includes(:user)
     render json: {itineraries: @itineraries}, status: 200, include: :user
   end
