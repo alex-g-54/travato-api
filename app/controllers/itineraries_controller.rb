@@ -5,8 +5,8 @@ class ItinerariesController < ApplicationController
     # end_date = Date.parse(params["end_date"])
 
     # @itineraries = Itinerary.includes(:user).where(city: city, date: start_date..end_date)
-
-    render json: {itineraries: "hi!"}, status: 200, include: :user
+    @itineraries = Itinerary.all
+    render json: @itineraries
   end
 
   def new
@@ -20,8 +20,8 @@ class ItinerariesController < ApplicationController
 
   def show
     itinerary_id = params["id"]
-    @itinerary = Itinerary.includes(:user).find_by(id: itinerary_id)
-    render json: {itinerary: @itinerary}, status: 200, include: :user
+    @itinerary = Itinerary.where(id: itinerary_id).limit(1).first
+    render json: @itinerary
   end
 
   def update
