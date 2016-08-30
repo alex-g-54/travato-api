@@ -25,6 +25,8 @@ gem 'simple_form'
 gem 'devise'
 gem 'omniauth-facebook'
 
+gem 'seed_dump'
+
 group :development, :test do
   gem 'pry-rails'
   gem 'dotenv-rails'
