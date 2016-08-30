@@ -152,10 +152,12 @@ GEM
     orm_adapter (0.5.0)
     pg (0.18.4)
     pkg-config (1.1.7)
-    pry (0.10.3)
+    pry (0.10.4)
       coderay (~> 1.1.0)
       method_source (~> 0.8.1)
       slop (~> 3.4)
+    pry-rails (0.3.4)
+      pry (>= 0.9.10)
     puma (3.4.0)
     rack (2.0.0.rc1)
       json
@@ -251,7 +253,7 @@ DEPENDENCIES
   neat
   omniauth-facebook
   pg (~> 0.15)
-  pry
+  pry-rails
   puma
   rails (= 5.0.0.beta4)
   sass

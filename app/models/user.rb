@@ -5,7 +5,8 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable,
          :omniauthable, omniauth_providers: [:facebook]
 
-  has_many :itineraries, through: :itinerary_users
+  has_many :host_itineraries, foreign_key: "user_id", class_name: "Itinerary"
+  has_many :guest_itineraries, through: :itinerary_users, source: :itinerary
   has_many :itinerary_users, inverse_of: :user
 
   def self.from_omniauth(auth)
@@ -20,7 +21,8 @@ class User < ActiveRecord::Base
   def has_type?
     true
   end
-  # @TODO: remove dependencies so this isn't needed 
+
+  # @TODO: remove dependencies so this isn't needed
   def type
     "Local"
   end
