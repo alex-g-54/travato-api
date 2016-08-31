@@ -22,7 +22,7 @@ class Itinerary < ActiveRecord::Base
   belongs_to :user
   has_many :users, through: :itinerary_users
   has_many :itinerary_users, inverse_of: :itinerary, dependent: :destroy
-  validate unless: :is_full?
+  validate :has_space_for_guest?
 
   def host
     user
@@ -32,7 +32,7 @@ class Itinerary < ActiveRecord::Base
     users
   end
 
-  def is_full?
-  	spots_filled > total_capacity
+  def has_space_for_guest?
+  	errors.add(:is_full, "This itinerary has no more space.") if spots_sold > total_capacity
   end
 end

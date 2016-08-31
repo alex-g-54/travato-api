@@ -6,16 +6,22 @@ class ItineraryUsersController < ApplicationController
 
     @itinerary = Itinerary.find(itinerary_id)
 
-    @itinerary.spots_filled +1 
+    # binding.pry
+
+    # @itinerary.write_attribute(:spots_filled, @itinerary.read_attribute(:spots_filled) + 1)
+	@itinerary.spots_sold = @itinerary.spots_sold + 1
 
     if @itinerary.save
       # create the booking
       @itinerary_user = ItineraryUser.new(user_id: user_id, itinerary_id: itinerary_id)
-      if @itinerary_user.save
+      begin 
+      	@itinerary_user.save
       	# success
       	flash[:notice] = "Success! You have booked a spot for this itinerary."
-      else
+      rescue
       	# error
+      	@itinerary.spots_sold = @itinerary.spots_sold - 1
+      	@itinerary.save
       	flash[:notice] = "An error occurred in booking the itinerary."
       end
     else
@@ -25,7 +31,7 @@ class ItineraryUsersController < ApplicationController
 
     # respond with success or failure
     respond_to do |format|
-      format.html { render 'show' }
+      format.html { render 'index' }
       format.json { render json: @itinerary_user }
     end
   end
