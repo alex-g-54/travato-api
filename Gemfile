@@ -19,7 +19,6 @@ gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
 
 gem 'administrate', github: 'greetpoint/administrate', branch: 'rails5'
-gem 'simple_form'
 
 gem 'devise'
 gem 'omniauth-facebook'
