@@ -22,6 +22,7 @@ class Itinerary < ActiveRecord::Base
   belongs_to :user
   has_many :users, through: :itinerary_users
   has_many :itinerary_users, inverse_of: :itinerary, dependent: :destroy
+  validate unless: :is_full?
 
   def host
     user
@@ -29,5 +30,9 @@ class Itinerary < ActiveRecord::Base
 
   def guests
     users
+  end
+
+  def is_full?
+  	spots_filled > total_capacity
   end
 end

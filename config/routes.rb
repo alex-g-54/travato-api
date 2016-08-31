@@ -11,7 +11,9 @@ Rails.application.routes.draw do
 
   resources :users, only: [:show, :edit, :update]
   resources :itineraries
+  resources :itinerary_users
   resources :home, only: [:index]
 
   root to: "home#index"
+
 end
