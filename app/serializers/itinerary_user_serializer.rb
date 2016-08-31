@@ -10,5 +10,5 @@
 #
 
 class ItineraryUserSerializer < ActiveModel::Serializer
-  attributes :user
+  attributes :guest, :itinerary
 end

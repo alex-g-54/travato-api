@@ -1,3 +1,17 @@
 SHOW
 
 <%= @user.username %>
+
+<p> Tours I'm hosting </p>
+<ul>
+	<% @user.host_itineraries.each do |itinerary| %>
+	<li> <%= itinerary.name %> </li>
+	<% end %>
+</ul>
+
+<p> Tours I'm going on </p>
+<ul>
+	<% @user.guest_itineraries.each do |itinerary| %>
+	<li> <%= itinerary.name %> </li>
+	<% end %>
+</ul>
