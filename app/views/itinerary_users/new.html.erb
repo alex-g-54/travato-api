@@ -1,0 +1,10 @@
+book a spot in this itinerary:
+<%= form_tag("/itinerary_users", method: "post") do %>
+  <%= label_tag(:itinerary_id, "Itinerary ID") %>
+  <%= text_field_tag(:itinerary_id) %>
+  <%= submit_tag("Book") %>
+<% end %>
+
+ <br>
+
+cancel your spot in this itinerary: cancel
