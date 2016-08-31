@@ -10,10 +10,11 @@ Rails.application.routes.draw do
   devise_for :users, controllers: { omniauth_callbacks: "users/omniauth_callbacks" }
 
   resources :users, only: [:show, :edit, :update]
+
+  get 'itineraries/search', to: 'itineraries#search'
   resources :itineraries
   resources :itinerary_users
-  resources :home, only: [:index]
+  resources :searches
 
-  root to: "home#index"
-
+  root to: "searches#index"
 end

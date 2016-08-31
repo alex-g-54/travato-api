@@ -35,8 +35,5 @@ class ItinerariesController < ApplicationController
   end
 
   def search
-    # parameters go here
-    # do the query
-    # render results page
   end
 end
