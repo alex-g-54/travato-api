@@ -10,6 +10,7 @@ class UserDashboard < Administrate::BaseDashboard
   ATTRIBUTE_TYPES = {
     host_itineraries: Field::HasMany.with_options(class_name: "Itinerary"),
     guest_itineraries: Field::HasMany.with_options(class_name: "Itinerary"),
+    itinerary_users: Field::HasMany,
     id: Field::Number,
     username: Field::String,
     full_name: Field::String,
@@ -38,6 +39,7 @@ class UserDashboard < Administrate::BaseDashboard
   COLLECTION_ATTRIBUTES = [
     :host_itineraries,
     :guest_itineraries,
+    :itinerary_users,
     :id,
   ].freeze
 
@@ -46,6 +48,7 @@ class UserDashboard < Administrate::BaseDashboard
   SHOW_PAGE_ATTRIBUTES = [
     :host_itineraries,
     :guest_itineraries,
+    :itinerary_users,
     :id,
     :username,
     :full_name,
@@ -72,6 +75,7 @@ class UserDashboard < Administrate::BaseDashboard
   FORM_ATTRIBUTES = [
     :host_itineraries,
     :guest_itineraries,
+    :itinerary_users,
     :username,
     :full_name,
     :description,

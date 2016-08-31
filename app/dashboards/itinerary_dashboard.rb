@@ -8,10 +8,10 @@ class ItineraryDashboard < Administrate::BaseDashboard
   # which determines how the attribute is displayed
   # on pages throughout the dashboard.
   ATTRIBUTE_TYPES = {
-    host: Field::BelongsTo.with_options(class_name: "User"),
-    guests: Field::HasMany.with_options(class_name: "User"),
+    user: Field::BelongsTo,
+    users: Field::HasMany,
+    itinerary_users: Field::HasMany,
     id: Field::Number,
-    user_id: Field::Number,
     city: Field::String,
     name: Field::String,
     price: Field::String.with_options(searchable: false),
@@ -32,18 +32,19 @@ class ItineraryDashboard < Administrate::BaseDashboard
   # By default, it's limited to four items to reduce clutter on index pages.
   # Feel free to add, remove, or rearrange items.
   COLLECTION_ATTRIBUTES = [
-    :host,
-    :guests,
+    :user,
+    :users,
+    :itinerary_users,
     :id,
   ].freeze
 
   # SHOW_PAGE_ATTRIBUTES
   # an array of attributes that will be displayed on the model's show page.
   SHOW_PAGE_ATTRIBUTES = [
-    :host,
-    :guests,
+    :user,
+    :users,
+    :itinerary_users,
     :id,
-    :user_id,
     :city,
     :name,
     :price,
@@ -62,9 +63,9 @@ class ItineraryDashboard < Administrate::BaseDashboard
   # an array of attributes that will be displayed
   # on the model's form (`new` and `edit`) pages.
   FORM_ATTRIBUTES = [
-    :host,
-    :guests,
-    :user_id,
+    :user,
+    :users,
+    :itinerary_users,
     :city,
     :name,
     :price,

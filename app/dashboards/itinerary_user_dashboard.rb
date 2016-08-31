@@ -9,9 +9,8 @@ class ItineraryUserDashboard < Administrate::BaseDashboard
   # on pages throughout the dashboard.
   ATTRIBUTE_TYPES = {
     itinerary: Field::BelongsTo,
-    guest: Field::BelongsTo.with_options(class_name: "User"),
+    user: Field::BelongsTo,
     id: Field::Number,
-    user_id: Field::Number,
     created_at: Field::DateTime,
     updated_at: Field::DateTime,
   }.freeze
@@ -23,18 +22,17 @@ class ItineraryUserDashboard < Administrate::BaseDashboard
   # Feel free to add, remove, or rearrange items.
   COLLECTION_ATTRIBUTES = [
     :itinerary,
-    :guest,
+    :user,
     :id,
-    :user_id,
+    :created_at,
   ].freeze
 
   # SHOW_PAGE_ATTRIBUTES
   # an array of attributes that will be displayed on the model's show page.
   SHOW_PAGE_ATTRIBUTES = [
     :itinerary,
-    :guest,
+    :user,
     :id,
-    :user_id,
     :created_at,
     :updated_at,
   ].freeze
@@ -44,8 +42,7 @@ class ItineraryUserDashboard < Administrate::BaseDashboard
   # on the model's form (`new` and `edit`) pages.
   FORM_ATTRIBUTES = [
     :itinerary,
-    :guest,
-    :user_id,
+    :user,
   ].freeze
 
   # Overwrite this method to customize how itinerary users are displayed
