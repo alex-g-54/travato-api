@@ -23,7 +23,7 @@
 #
 
 class UserSerializer < ActiveModel::Serializer
-  attributes :id, :username, :full_name, :description, :email, :guest_itineraries, :host_itineraries
+  attributes :id, :username, :full_name, :description, :email, :host_itineraries, :guest_itineraries
 
   has_many :guest_itineraries
   has_many :host_itineraries
