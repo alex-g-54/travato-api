@@ -23,5 +23,5 @@
 #
 
 class UserSerializer < ActiveModel::Serializer
-  attributes :id, :username, :full_name, :description, :email
+  attributes :id, :username, :full_name, :description, :email, :guest_itineraries, :host_itineraries
 end
