@@ -4,7 +4,6 @@ class SearchesController < ApplicationController
   end
 
   def create
-
     @search = Search.new(search_params)
 
     if @search.save
