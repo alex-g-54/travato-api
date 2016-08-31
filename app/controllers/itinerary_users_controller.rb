@@ -6,27 +6,16 @@ class ItineraryUsersController < ApplicationController
 
     @itinerary = Itinerary.find(itinerary_id)
 
-    @itinerary.spots_sold = @itinerary.spots_sold + 1
+    @itinerary.increase_spots_sold
+    @itinerary_user = ItineraryUser.new(itinerary_id: itinerary_id, user_id: user_id)
 
-    if @itinerary.save
-      # create the booking
-      @itinerary_user = ItineraryUser.new(user_id: user_id, itinerary_id: itinerary_id)
-      begin 
-      	@itinerary_user.save
-      	# success
-      	flash[:notice] = "Success! You have booked a spot for this itinerary."
-      rescue
-      	# error, probably because user is already registered for the itinerary
-      	@itinerary.spots_sold = @itinerary.spots_sold - 1
-      	@itinerary.save
-      	flash[:notice] = "An error occurred in booking the itinerary."
-      end
+    if @itinerary.valid? && @itinerary_user.valid?
+      @itinerary.save && @itinerary_user.save
+      flash[:notice] = "Booking successful!"
     else
-      # error
-      flash[:notice] = @itinerary.errors[:is_full][0]
+      flash[:notice] = "Booking unsuccessful. #{@itinerary.errors.full_messages} #{@itinerary_user.errors.full_messages}"
     end
 
-    # respond with success or failure
     respond_to do |format|
       format.html { render 'new' }
       format.json { render json: @itinerary_user }

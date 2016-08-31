@@ -13,6 +13,8 @@ class ItineraryUser < ActiveRecord::Base
   belongs_to :itinerary, inverse_of: :itinerary_users
   belongs_to :user
 
+  validates :user_id, uniqueness: { scope: :itinerary_id, message: "Can't double book!" }
+
   def guest
     user
   end
