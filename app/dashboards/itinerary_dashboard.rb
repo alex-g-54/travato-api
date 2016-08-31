@@ -32,19 +32,17 @@ class ItineraryDashboard < Administrate::BaseDashboard
   # By default, it's limited to four items to reduce clutter on index pages.
   # Feel free to add, remove, or rearrange items.
   COLLECTION_ATTRIBUTES = [
+    :id,
     :user,
     :users,
-    :itinerary_users,
-    :id,
   ].freeze
 
   # SHOW_PAGE_ATTRIBUTES
   # an array of attributes that will be displayed on the model's show page.
   SHOW_PAGE_ATTRIBUTES = [
+    :id,
     :user,
     :users,
-    :itinerary_users,
-    :id,
     :city,
     :name,
     :price,
@@ -64,8 +62,6 @@ class ItineraryDashboard < Administrate::BaseDashboard
   # on the model's form (`new` and `edit`) pages.
   FORM_ATTRIBUTES = [
     :user,
-    :users,
-    :itinerary_users,
     :city,
     :name,
     :price,
@@ -81,7 +77,7 @@ class ItineraryDashboard < Administrate::BaseDashboard
   # Overwrite this method to customize how itineraries are displayed
   # across all pages of the admin dashboard.
   #
-  # def display_resource(itinerary)
-  #   "Itinerary ##{itinerary.id}"
-  # end
+  def display_resource(itinerary)
+     itinerary.name.to_s
+  end
 end
