@@ -33,8 +33,4 @@ class ItinerariesController < ApplicationController
 
   def destroy
   end
-
-  def search
-    binding.pry
-  end
 end
