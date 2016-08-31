@@ -35,5 +35,6 @@ class ItinerariesController < ApplicationController
   end
 
   def search
+    binding.pry
   end
 end

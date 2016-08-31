@@ -9,7 +9,7 @@ private
   end
 
   def after_sign_in_path_for(resource)
-    home_index_path
+    new_search_path
   end
 
 end
