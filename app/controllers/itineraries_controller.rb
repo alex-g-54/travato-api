@@ -1,14 +1,18 @@
 class ItinerariesController < ApplicationController
   def new
     @itinerary = Itinerary.new
+    @itinerary.spots_sold = 0
+    @itinerary.user_id = current_user.id
   end
 
   def create
-    binding.pry
+    # binding.pry
     Itinerary.create!(itinerary_params)
+    redirect_to 'new'
   end
 
   def edit
+    @itinerary = Itinerary.find(params[:id])
   end
 
   def show
@@ -31,6 +35,6 @@ class ItinerariesController < ApplicationController
   end
 
   def itinerary_params
-    params.require(:itinerary).permit(:name, :city, :price, :description, :total_capacity, :pic_url, :start_time, :end_time) # permit all fields you want to allow
+    params.require(:itinerary).permit(:name, :city, :price, :description, :total_capacity, :spots_sold, :user_id, :pic_url, :date) # permit all fields you want to allow
   end
 end

@@ -3,7 +3,7 @@
 <%= form_for @itinerary do |f| %>
   <div>
     <%= f.label(:name, "Itinerary Name") %>
-    <%= f.text_field :name) %>
+    <%= f.text_field(:name) %>
   </div>
 
   <div>
@@ -18,7 +18,7 @@
 
   <div>
     <%= f.label(:description, "Description") %>
-    <%= f.text_area(:description, :text, rows: 20, cols: 40) %>
+    <%= f.text_area :description, rows: 20, cols: 30 %>
   </div>
 
   <div>
@@ -32,14 +32,12 @@
   </div>
 
   <p>
-    <%= f.label :start_time, "Start Time" %>
-    <%= f.date_field Date.today, :start_time %>
+    <%= f.label :date, "Date" %>
+    <%= f.date_field :date %>
   </p>
-
-  <p>
-    <%= f.label :end_time, "End Time" %>
-    <%= f.date_field Date.tomorrow, :end_time %>
-  </p>
+  
+  <%= f.hidden_field :spots_sold %>
+  <%= f.hidden_field :user_id %>
 
   <%= submit_tag("Create Itinerary") %>
 <% end %>
