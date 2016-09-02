@@ -27,12 +27,11 @@ private
     itineraries
   end
 
-  def dates_range_present?
-    arrival_date.present? && departure_date.present?
+  def valid_date_range?
+    errors.add(:search, "No bookings from future to past") unless dates_range_present? && arrival_date < departure_date
   end
 
-  def valid_date_range?
-    return unless dates_range_present?
-    errors.add(:search, "No bookings from future to past") if arrival_date > departure_date
+  def dates_range_present?
+    arrival_date.present? && departure_date.present?
   end
 end
