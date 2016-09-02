@@ -8,13 +8,14 @@ SHOW
 
 <ul>
 	<% @user.host_itineraries.each do |itinerary| %>
-	<li> <%= itinerary.name %> </li>
+	<li> <%= itinerary.name %>  - 
+<%= link_to "Edit", edit_itinerary_path(itinerary) %></li>
 	<% end %>
 </ul>
 
 <p> Tours I'm going on </p>
 <ul>
 	<% @user.guest_itineraries.each do |itinerary| %>
-	<li> <%= itinerary.name %> </li>
+	<li> <%= itinerary.name %></li>
 	<% end %>
 </ul>
