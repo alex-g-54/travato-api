@@ -23,4 +23,8 @@ class ItinerarySerializer < ActiveModel::Serializer
 
   belongs_to :host
   has_many :guests
+
+  class UserSerializer < ActiveModel::Serializer
+    attributes :id, :username, :full_name, :description, :email
+  end
 end
