@@ -1,14 +1,13 @@
 class ItinerariesController < ApplicationController
   def new
     @itinerary = Itinerary.new
-    @itinerary.spots_sold = 0
-    @itinerary.user_id = current_user.id
   end
 
   def create
-    # binding.pry
-    Itinerary.create!(itinerary_params)
-    redirect_to 'new'
+    params[:itinerary][:spots_sold] = 0
+    params[:itinerary][:user_id] = current_user.id
+    @new_itinerary = Itinerary.create!(itinerary_params)
+    redirect_to "/itineraries/#{@new_itinerary.id}"
   end
 
   def edit
@@ -29,6 +28,7 @@ class ItinerariesController < ApplicationController
     itinerary_id = params["id"]
     @itinerary = Itinerary.where(id: itinerary_id).limit(1).first
     @itinerary.update_attributes(itinerary_params)
+    redirect_to "/itineraries/#{itinerary_id}"
   end
 
   def destroy

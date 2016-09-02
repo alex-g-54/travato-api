@@ -39,7 +39,6 @@ class Itinerary < ActiveRecord::Base
   end
 
   def enough_spots
-    # binding.pry
     errors.add(:not_enough_spots, "Trip fully booked!") if (spots_sold > total_capacity)
   end
 end
