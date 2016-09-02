@@ -4,9 +4,15 @@ class SearchesController < ApplicationController
   end
 
   def create
-    binding.pry
-    @search = Search.create!(params[:search])
-    redirect_to @search
+    @search = Search.new(search_params)
+
+    if @search.save
+      redirect_to @search
+    else
+      flash[:notice] = @search.errors.full_messages.join(". ")
+      render 'new'
+    end
+
   end
 
   def show

@@ -1,6 +1,8 @@
 <p>
   <% if user_signed_in? %>
     <%= link_to "sign out", destroy_user_session_path, method: :delete %>
+    <%= link_to "search_for_trips", new_search_path %>
+    <%= link_to "view my trips", user_path(current_user) %>
   <% else %>
     <%= link_to "sign in with facebook", user_facebook_omniauth_authorize_path %>
   <% end %>
