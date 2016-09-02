@@ -3,6 +3,9 @@ SHOW
 <%= @user.username %>
 
 <p> Tours I'm hosting </p>
+
+<%= link_to "Host new Itinerary", new_itinerary_path %>
+
 <ul>
 	<% @user.host_itineraries.each do |itinerary| %>
 	<li> <%= itinerary.name %> </li>
