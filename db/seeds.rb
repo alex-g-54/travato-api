@@ -13,5 +13,5 @@ ItineraryUser.create!([
   {itinerary_id: @trip_1.id, user_id: @ag.id},
   {itinerary_id: @trip_2.id, user_id: @nk.id},
   {itinerary_id: @trip_2.id, user_id: @ur.id},
-  {itinerary_id: @trip_3.id, user_id: @ur.user_id}
+  {itinerary_id: @trip_3.id, user_id: @ur.id}
 ])
