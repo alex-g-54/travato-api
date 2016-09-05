@@ -8,14 +8,14 @@ SHOW
 
 <ul>
 	<% @user.host_itineraries.each do |itinerary| %>
-	<li> <%= itinerary.name %>  - 
-<%= link_to "Edit", edit_itinerary_path(itinerary) %></li>
+	<li> <%= link_to itinerary.name, itinerary_path(itinerary) %>  - 
+<%= link_to "Edit", edit_itinerary_path(itinerary) %> - (Total seats left: <%= itinerary.total_capacity - itinerary.spots_sold %> of <%= itinerary.total_capacity %>)</li>
 	<% end %>
 </ul>
 
 <p> Tours I'm going on </p>
 <ul>
 	<% @user.guest_itineraries.each do |itinerary| %>
-	<li> <%= itinerary.name %></li>
+	<li> <%= link_to itinerary.name, itinerary_path(itinerary) %></li> 
 	<% end %>
 </ul>
