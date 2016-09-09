@@ -34,8 +34,11 @@ class ItineraryUsersController < ApplicationController
 
   def destroy
     itinerary_user_id = params["id"]
-    ItineraryUser.find(itinerary_user_id).destroy
+    @itinerary_user = ItineraryUser.find(itinerary_user_id)
+    user_id = @itinerary_user.user_id
 
-    redirect_to root_path
+    @itinerary_user.destroy
+
+    redirect_to user_path(user_id)
   end
 end
