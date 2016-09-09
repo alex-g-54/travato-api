@@ -1,3 +1,5 @@
 <h1>Search Results</h1>
 
-<%= render @search.itineraries %>
+<% @search.itineraries.each do |itinerary| %>
+  <%= link_to itinerary.name, itinerary_path(itinerary) %>
+<% end %>

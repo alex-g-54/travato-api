@@ -1,1 +1,6 @@
-<p>hola, this is itinerary_user id <%= @itinerary_user.id %></p>
+<h1>Booking Details</h1>
+
+<p>Itinerary Name: <%= @itinerary_user.itinerary.name %></p>
+<p>Date: <%= @itinerary_user.itinerary.date %></p>
+<p>Host: <%= @itinerary_user.itinerary.host.username %></p>
+<p>Guest: <%= @itinerary_user.user.username %></p>

@@ -17,7 +17,7 @@ class ItineraryUsersController < ApplicationController
     end
 
     respond_to do |format|
-      format.html { render 'new' }
+      format.html { redirect_to itinerary_user_path(@itinerary_user) }
       format.json { render json: @itinerary_user }
     end
   end
