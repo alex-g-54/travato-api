@@ -12,12 +12,14 @@ class ItineraryUsersController < ApplicationController
     if @itinerary.valid? && @itinerary_user.valid?
       @itinerary.save && @itinerary_user.save
       flash[:notice] = "Booking successful!"
+      redirect_path = itinerary_user_path(@itinerary_user.id)
     else
       flash[:notice] = "Booking unsuccessful. #{@itinerary.errors.full_messages} #{@itinerary_user.errors.full_messages}"
+      redirect_path = itinerary_path(@itinerary.id)
     end
 
     respond_to do |format|
-      format.html { redirect_to itinerary_user_path(@itinerary_user) }
+      format.html { redirect_to redirect_path }
       format.json { render json: @itinerary_user }
     end
   end
