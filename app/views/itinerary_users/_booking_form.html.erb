@@ -1,0 +1,4 @@
+<%= form_tag("/itinerary_users", method: "post") do  %>
+  <%= hidden_field_tag(:itinerary_id, @itinerary.id) %>
+  <%= submit_tag("Book a spot on this tour") %>
+<% end %>

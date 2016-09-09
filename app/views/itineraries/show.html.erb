@@ -1,1 +1,15 @@
 <p>Find me in app/views/itineraries/show.html.erb</p>
+
+<h1><%= @itinerary.name %></h1>
+
+
+<%= render '/itinerary_users/booking_form' %>
+
+<p><%= @itinerary.description %></p>
+
+People coming: <%= @itinerary.spots_sold %> (Total seats left: <%= @itinerary.total_capacity - @itinerary.spots_sold %> of <%= @itinerary.total_capacity %>)
+<ul>
+  <% @itinerary.guests.each do |guest| %>
+  <li><%= guest.full_name %></li>
+  <% end %>
+</ul>
