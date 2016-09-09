@@ -23,12 +23,17 @@
 #
 
 class UserSerializer < ActiveModel::Serializer
-  attributes :id, :username, :full_name, :description, :email, :host_itineraries, :guest_itineraries
+  attributes :id, :username, :full_name, :description, :email, :host_itineraries, :guest_itineraries, :itinerary_users
 
-  has_many :guest_itineraries
   has_many :host_itineraries
+  has_many :guest_itineraries
+  has_many :itinerary_users
 
   class ItinerarySerializer < ActiveModel::Serializer
-    attributes :id, :city, :name, :price, :description, :total_capacity, :spots_sold, :start_time, :end_time, :pic_url, :date
+    attributes :id, :name, :city, :price, :description, :total_capacity, :spots_sold, :start_time, :pic_url, :end_time, :date
+  end
+
+  class ItineraryUserSerializer < ActiveModel::Serializer
+    attributes :id, :itinerary_id
   end
 end

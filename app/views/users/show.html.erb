@@ -15,7 +15,9 @@ SHOW
 
 <p> Tours I'm going on </p>
 <ul>
-	<% @user.guest_itineraries.each do |itinerary| %>
-	<li> <%= link_to itinerary.name, itinerary_path(itinerary) %></li> 
+	<% @user.itinerary_users.each do |booking| %>
+	<li> <%= link_to booking.itinerary.name, itinerary_path(booking.itinerary) %> 
+	<%= link_to "Cancel booking", itinerary_user_path(booking), method: :delete %>
+  </li> 
 	<% end %>
 </ul>

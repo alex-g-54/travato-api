@@ -31,4 +31,11 @@ class ItineraryUsersController < ApplicationController
       format.json { render json: @itinerary_user }
     end
   end
+
+  def destroy
+    itinerary_user_id = params["id"]
+    ItineraryUser.find(itinerary_user_id).destroy
+
+    redirect_to root_path
+  end
 end
