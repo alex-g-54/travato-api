@@ -9,8 +9,11 @@ Rails.application.routes.draw do
 
   devise_for :users, controllers: { omniauth_callbacks: "users/omniauth_callbacks" }
 
-  resources :users, only: [:show, :edit, :update]
-  resources :itineraries
+  resources :users, only: [:show, :edit, :update] do
+    resources :itineraries, only: [:index]
+  end
+
+  resources :itineraries, only: [:new, :create, :edit, :show, :update, :destroy]
   resources :itinerary_users
   resources :searches
 

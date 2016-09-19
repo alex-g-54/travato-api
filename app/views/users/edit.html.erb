@@ -1,4 +1,14 @@
-<%= form_tag("/users/#{@user.id}", method: "PUT") do %>
-<!-- this page is not for changing types anymore -->
-  <%= submit_tag("Submit") %>
+<%= form_for @user do |f| %>
+
+  <div>
+    <%= f.label(:full_name, "Full Name") %>
+    <%= f.text_field(:full_name) %>
+  </div>
+
+  <div>
+    <%= f.label(:description, "Description") %>
+    <%= f.text_area :description, rows: 10, cols: 30 %>
+  </div>
+
+  <%= f.submit("Submit") %>
 <% end %>

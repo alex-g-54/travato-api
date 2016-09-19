@@ -1,7 +1,8 @@
 <p>
   <%= link_to "search_for_trips", new_search_path %>
   <% if user_signed_in? %>
-    <%= link_to "view my trips", user_path(current_user) %>
+    <%= link_to "view my trips", user_itineraries_path(current_user) %>
+    <%= link_to "view my profile", user_path(current_user) %>
     <%= link_to "sign out", destroy_user_session_path, method: :delete %>
   <% else %>
     <%= link_to "sign in with facebook", user_facebook_omniauth_authorize_path %>
