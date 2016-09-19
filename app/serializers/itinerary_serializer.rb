@@ -21,7 +21,7 @@
 class ItinerarySerializer < ActiveModel::Serializer
   attributes :id, :city, :name, :host, :guests, :price, :description, :total_capacity, :spots_sold, :start_time, :end_time, :pic_url, :date
 
-  belongs_to :user
+  belongs_to :host
   has_many :guests
 
   class UserSerializer < ActiveModel::Serializer
