@@ -22,7 +22,7 @@ private
 
   def find_itineraries
     itineraries = Itinerary.order(:updated_at)
-    itineraries = itineraries.where("city like ?", "%#{city}") if city.present?
+    itineraries = itineraries.where("city ILIKE ?", "%#{city}%") if city.present?
     itineraries = itineraries.where(date: arrival_date .. departure_date) if dates_range_present?
     itineraries
   end
