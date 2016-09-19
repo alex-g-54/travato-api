@@ -1,4 +1,10 @@
 class ItinerariesController < ApplicationController
+  def index
+    @user = User.where(id: params[:user_id]).limit(1).first
+    @host_itineraries = @user.host_itineraries
+    @guest_itineraries = @user.guest_itineraries
+  end
+
   def new
     @itinerary = Itinerary.new
   end

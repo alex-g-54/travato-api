@@ -1,23 +1,6 @@
-SHOW
+<h1>User Profile</h1>
 
 <%= @user.username %>
+<%= link_to "Edit", edit_user_path(@user) %>
 
 <p>Description: <%= @user.description %></p>
-
-<p> Tours I'm hosting </p>
-
-<%= link_to "Host new Itinerary", new_itinerary_path %>
-
-<ul>
-	<% @user.host_itineraries.each do |itinerary| %>
-	<li> <%= link_to itinerary.name, itinerary_path(itinerary) %>  - 
-<%= link_to "Edit", edit_itinerary_path(itinerary) %> - (Total seats left: <%= itinerary.total_capacity - itinerary.spots_sold %> of <%= itinerary.total_capacity %>)</li>
-	<% end %>
-</ul>
-
-<p> Tours I'm going on </p>
-<ul>
-	<% @user.guest_itineraries.each do |itinerary| %>
-	<li> <%= link_to itinerary.name, itinerary_path(itinerary) %></li> 
-	<% end %>
-</ul>

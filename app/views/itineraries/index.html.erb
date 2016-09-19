@@ -1,1 +1,19 @@
-<p>Find me in app/views/itineraries/index.html.erb</p>
+<h1>My Itineraries</h1>
+<h2> Tours I'm hosting </h2>
+
+<%= link_to "Host new Itinerary", new_itinerary_path %>
+
+<ul>
+  <% @host_itineraries.each do |itinerary| %>
+  <li> <%= link_to itinerary.name, itinerary_path(itinerary) %>  -
+<%= link_to "Edit", edit_itinerary_path(itinerary) %> - (Total seats left: <%= itinerary.total_capacity - itinerary.spots_sold %> of <%= itinerary.total_capacity %>)</li>
+  <% end %>
+</ul>
+
+<h2> Tours I'm going on </h2>
+<ul>
+  <% @guest_itineraries.each do |itinerary| %>
+  <li> <%= link_to itinerary.name, itinerary_path(itinerary) %></li>
+  <% end %>
+</ul>
+
