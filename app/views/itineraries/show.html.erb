@@ -1,8 +1,5 @@
 <h1><%= @itinerary.name %></h1>
 
-
-<%= render '/itinerary_users/booking_form' %>
-
 <p><%= @itinerary.description %></p>
 
 People coming: <%= @itinerary.spots_sold %> (Total seats left: <%= @itinerary.total_capacity - @itinerary.spots_sold %> of <%= @itinerary.total_capacity %>)
@@ -11,3 +8,5 @@ People coming: <%= @itinerary.spots_sold %> (Total seats left: <%= @itinerary.to
   <li><%= guest.full_name %></li>
   <% end %>
 </ul>
+
+<%= render '/itinerary_users/booking_form' %>

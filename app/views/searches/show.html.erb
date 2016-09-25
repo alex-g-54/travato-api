@@ -1,5 +1,13 @@
 <h1>Search Results</h1>
 
+<h3>Itineraries available in <%= @search.city %> from
+    <%= @search.arrival_date.strftime("%A %B %d, %Y") %> to <%= @search.departure_date.strftime("%A %B %d, %Y") %></h3>
+
 <% @search.itineraries.each do |itinerary| %>
-  <%= link_to itinerary.name, itinerary_path(itinerary) %>
+  <%= itinerary.name %>
+  <ul>
+    <li>$<%= itinerary.price %></li>
+    <li><%= itinerary.spots_sold %>/<%= itinerary.total_capacity %> spots sold</li>
+    <li><%= link_to "Show Details", itinerary_path(itinerary) %></li>
+  </ul>
 <% end %>
